@@ -1,5 +1,47 @@
-## Put comments here that give an overall description of what your
-## functions do
+## The two following functions are used to create an object that stores a matrix
+## and caches its inverse. You can find usage example with the expected output
+## below:
+##
+## > x <- makeCacheMatrix(matrix(c(4,2,7,6), nrow=2, ncol=2))
+## > x$get()
+## [,1] [,2]
+## [1,]    4    7
+## [2,]    2    6
+## > x$getInverse()
+## NULL
+## > cacheSolve(x)
+## [,1] [,2]
+## [1,]  0.6 -0.7
+## [2,] -0.2  0.4
+## > cacheSolve(x)
+## getting cached data
+## [,1] [,2]
+## [1,]  0.6 -0.7
+## [2,] -0.2  0.4
+## > x$getInverse()
+## [,1] [,2]
+## [1,]  0.6 -0.7
+## [2,] -0.2  0.4
+## > x$get() %*% x$getInverse()
+## [,1] [,2]
+## [1,]    1    0
+## [2,]    0    1
+## > x$set(matrix(c(1,2,3,4), nrow=2, ncol=2))
+## > x$get()
+## [,1] [,2]
+## [1,]    1    3
+## [2,]    2    4
+## > x$getInverse()
+## NULL
+## > cacheSolve(x)
+## [,1] [,2]
+## [1,]   -2  1.5
+## [2,]    1 -0.5
+## > x$getInverse()
+## [,1] [,2]
+## [1,]   -2  1.5
+## [2,]    1 -0.5
+
 
 ## Creates a special "matrix" with four functions:
 ## * `set` sets the matrix to inverse and the cached result to NULL
